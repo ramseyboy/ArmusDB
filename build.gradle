@@ -1,0 +1,19 @@
+//parent
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+    ext.groupName = 'com.ramseyboy.armusdb'
+    ext.versionNum = '1.0.0-SNAPSHOT'
+}
+
+apply plugin: 'idea'
