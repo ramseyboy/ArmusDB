@@ -1,17 +1,17 @@
 #include "leveldbjni.h"
 
-extern int register_com_ramseyboy_armusdb_DB(JNIEnv *env);
-extern int register_com_ramseyboy_armusdb_WriteBatch(JNIEnv *env);
-extern int register_com_ramseyboy_armusdb_Iterator(JNIEnv *env);
+extern int register_com_ramseyboy_armusdb_ext_leveldb_DB(JNIEnv *env);
+extern int register_com_ramseyboy_armusdb_ext_leveldb_WriteBatch(JNIEnv *env);
+extern int register_com_ramseyboy_armusdb_ext_leveldb_Iterator(JNIEnv *env);
 
 jint
 throwException(JNIEnv* env, leveldb::Status status) {
     const char* exceptionClass;
 
     if (status.IsNotFound()) {
-        exceptionClass = "com/ramseyboy/armusdb/NotFoundException";
+        exceptionClass = "com/ramseyboy/armusdb/ext/leveldb/NotFoundException";
     } else if (status.IsCorruption()) {
-        exceptionClass = "com/ramseyboy/armusdb/DatabaseCorruptException";
+        exceptionClass = "com/ramseyboy/armusdb/ext/leveldb/DatabaseCorruptException";
     } else if (status.IsIOError()) {
         exceptionClass = "java/io/IOException";
     } else {
@@ -34,9 +34,9 @@ jint JNI_OnLoad(JavaVM* vm, void *reserved)
         return -1;
     }
 
-    register_com_ramseyboy_armusdb_DB(env);
-    register_com_ramseyboy_armusdb_WriteBatch(env);
-    register_com_ramseyboy_armusdb_Iterator(env);
+    register_com_ramseyboy_armusdb_ext_leveldb_DB(env);
+    register_com_ramseyboy_armusdb_ext_leveldb_WriteBatch(env);
+    register_com_ramseyboy_armusdb_ext_leveldb_Iterator(env);
 
     return JNI_VERSION_1_6;
 }

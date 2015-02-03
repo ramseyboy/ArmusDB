@@ -1,6 +1,3 @@
-[submodule "armusdb-leveldb/src/main/jni/snappy"]
-	path = armusdb-leveldb/src/main/jni/snappy
-	url = https://github.com/google/snappy.git
 [submodule "armusdb-leveldb/src/main/jni/leveldb-ndk"]
 	path = armusdb-leveldb/src/main/jni/leveldb-ndk
 	url = https://github.com/ramseyboy/leveldb-ndk.git

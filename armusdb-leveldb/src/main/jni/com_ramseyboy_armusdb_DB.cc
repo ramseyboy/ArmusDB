@@ -271,10 +271,10 @@ static JNINativeMethod sMethods[] =
 };
 
 int
-register_com_ramseyboy_armusdb_DB(JNIEnv *env) {
-    jclass clazz = env->FindClass("com/ramseyboy/armusdb/DB");
+register_com_ramseyboy_armusdb_ext_leveldb_DB(JNIEnv *env) {
+    jclass clazz = env->FindClass("com/ramseyboy/armusdb/ext/leveldb/DB");
     if (!clazz) {
-        LOGE("Can't find class com.ramseyboy.armusdb.DB");
+        LOGE("Can't find class com.ramseyboy.armusdb.ext.leveldb.DB");
         return 0;
     }
 

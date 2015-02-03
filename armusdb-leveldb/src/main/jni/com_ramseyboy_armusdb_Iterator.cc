@@ -117,10 +117,10 @@ static JNINativeMethod sMethods[] =
 };
 
 int
-register_com_ramseyboy_armusdb_Iterator(JNIEnv *env) {
-    jclass clazz = env->FindClass("com/ramseyboy/armusdb/Iterator");
+register_com_ramseyboy_armusdb_ext_leveldb_Iterator(JNIEnv *env) {
+    jclass clazz = env->FindClass("com/ramseyboy/armusdb/ext/leveldb/Iterator");
     if (!clazz) {
-        LOGE("Can't find class com.ramseyboy.armusdb.Iterator");
+        LOGE("Can't find class com.ramseyboy.armusdb.ext.leveldb.Iterator");
         return 0;
     }
 
