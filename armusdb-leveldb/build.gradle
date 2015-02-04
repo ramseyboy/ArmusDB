@@ -21,6 +21,10 @@ android {
     }
 }
 
+dependencies {
+    compile project(":armusdb-core")
+}
+
 task ndkBuild(type: Exec) {
     commandLine 'ndk-build', '-C', file('src/main').absolutePath
 }

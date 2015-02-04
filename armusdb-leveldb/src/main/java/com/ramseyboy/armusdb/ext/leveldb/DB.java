@@ -1,9 +1,12 @@
 package com.ramseyboy.armusdb.ext.leveldb;
 
+import com.ramseyboy.armusdb.database.Database;
+
 import java.io.File;
 import java.nio.ByteBuffer;
 
-public class DB extends NativeObject {
+public class DB extends NativeObject implements Database {
+
     public abstract static class Snapshot extends NativeObject {
         Snapshot(long ptr) {
             super(ptr);
@@ -35,7 +38,7 @@ public class DB extends NativeObject {
         }
     }
 
-    public void put(byte[] key, byte[] value) {
+    public void put(String key, byte[] value) {
         assertOpen("Database is closed");
         if (key == null) {
             throw new NullPointerException("key");
@@ -44,20 +47,20 @@ public class DB extends NativeObject {
             throw new NullPointerException("value");
         }
 
-        nativePut(mPtr, key, value);
+        nativePut(mPtr, key.getBytes(), value);
     }
 
-    public byte[] get(byte[] key) {
+    public byte[] get(String key) {
         return get(null, key);
     }
 
-    public byte[] get(Snapshot snapshot, byte[] key) {
+    public byte[] get(Snapshot snapshot, String key) {
         assertOpen("Database is closed");
         if (key == null) {
             throw new NullPointerException();
         }
 
-        return nativeGet(mPtr, snapshot != null ? snapshot.getPtr() : 0, key);
+        return nativeGet(mPtr, snapshot != null ? snapshot.getPtr() : 0, key.getBytes());
     }
 
     public byte[] get(ByteBuffer key) {
@@ -73,13 +76,13 @@ public class DB extends NativeObject {
         return nativeGet(mPtr, snapshot != null ? snapshot.getPtr() : 0, key);
     }
 
-    public void delete(byte[] key) {
+    public void delete(String key) {
         assertOpen("Database is closed");
         if (key == null) {
             throw new NullPointerException();
         }
 
-        nativeDelete(mPtr, key);
+        nativeDelete(mPtr, key.getBytes());
     }
 
     public void write(WriteBatch batch) {
