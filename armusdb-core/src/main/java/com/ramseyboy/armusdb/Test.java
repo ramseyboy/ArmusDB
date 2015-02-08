@@ -17,7 +17,7 @@ public class Test {
 
         final int KEY = 0;
 
-        File path = new File("testDatabase.db");
+        File path = new File("tmp/testDatabase.db");
         Database fileDB = new FileDB(path);
         try {
             fileDB.open();

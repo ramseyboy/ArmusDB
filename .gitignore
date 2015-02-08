@@ -60,3 +60,5 @@ tmp/*
 *~
 *.swp
 build/
+
+tmp/
