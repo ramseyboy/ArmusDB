@@ -3,7 +3,7 @@ package com.ramseyboy.armusdb.database;
 import java.io.*;
 
 
-public class RecordHeader {
+class RecordHeader {
 
     /**
      * File pointer to the first byte of record data (8 bytes).

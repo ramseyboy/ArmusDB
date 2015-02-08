@@ -1,9 +1,5 @@
 package com.ramseyboy.armusdb.database;
 
-import com.ramseyboy.armusdb.transaction.DbByteArrayOutputStream;
-import com.ramseyboy.armusdb.transaction.RecordReader;
-import com.ramseyboy.armusdb.transaction.RecordWriter;
-
 import java.io.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -40,7 +36,7 @@ public class FileDB implements Database {
     private static final String READ_WRITE = "rw";
     private static final String READ = "r";
 
-    public FileDB(File dbPath) throws IOException {
+    public FileDB(File dbPath) {
         path = dbPath;
     }
 

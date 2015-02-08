@@ -1,1 +1,1 @@
-include ':armusdb-core', ':armusdb-leveldb', ':sample'
+include ':armusdb-core', ':armusdb-leveldb', ':sample', ':armusdb-android'
